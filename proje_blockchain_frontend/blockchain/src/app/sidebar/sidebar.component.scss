@@ -1,0 +1,17 @@
+.sidebar {
+    background: #1e5f74;
+    position: fixed;
+    top: 75px;
+    height: 100%;
+    width: 150px;
+    padding-top: 2rem;
+    li {
+      padding: 1rem ;
+      a {
+        text-decoration: none;
+        user-select: none;
+              color: white;
+
+      }
+    }
+}

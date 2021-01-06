@@ -1,0 +1,64 @@
+<p-toast></p-toast>
+<div class="p-grid container">
+  <div class="p-col-12 p-md-3">
+    <p-card [style]="{width: '350px'}">
+      <div class="add-block">
+        <div class="p-grid">
+          <div class="p-inputgroup">
+            <span class="p-inputgroup-addon">Data</span>
+            <input type="text" pInputText placeholder="" [(ngModel)]="creatorInput">
+          </div>
+        </div>
+        <button pButton (click)="createBlock()" label="Add New Block"
+          class="p-button-rounded p-button-info p-button-raised"></button>
+      </div>
+    </p-card>
+  </div>
+
+  <div class="p-col-12 p-md-9">
+    <ng-container *ngIf="blocks; else notLoaded">
+      <p-dialog header="Mining..." [(visible)]="mining" [style]="{width: '50vw', height: '50vh'}" [baseZIndex]="1000000">
+        <p>
+          {{miningString}}
+        </p>
+      </p-dialog>
+
+      <p-card styleClass="blockchain">
+        <ng-template pTemplate="title">
+          <div class="p-d-flex p-ai-center p-jc-between">
+            BLOCKCHAIN
+            <button pButton [disabled]="isMiningDisable" (click)="startMiner()" label="Start Mining"
+              class="p-button-rounded p-button-info p-button-raised"></button>
+          </div>
+        </ng-template>
+
+
+        <p-timeline [value]="blocks" align="alternate" styleClass="customized-timeline">
+          <ng-template pTemplate="marker" let-block>
+            <span class="custom-marker p-shadow-2" [style.backgroundColor]="block.status">
+            </span>
+          </ng-template>
+
+          <ng-template pTemplate="content" let-block>
+            <p-card [header]="block.id" [subheader]="block.time"
+              [styleClass]="block.status? 'registered': 'unregistered'">
+              <p>
+                <span class="p-text-bold">Previous Hash:</span>{{block.p_hash}}
+              </p>
+              <p>
+                <span class="p-text-bold">Hash:</span> {{block.hash}}
+              </p>
+            </p-card>
+          </ng-template>
+
+        </p-timeline>
+      </p-card>
+
+    </ng-container>
+
+    <ng-template #notLoaded>
+      <p-messages></p-messages>
+    </ng-template>
+
+  </div>
+</div>

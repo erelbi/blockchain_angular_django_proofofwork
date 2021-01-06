@@ -1,0 +1,77 @@
+.custom-marker {
+  display: flex;
+  width: 1.5rem;
+  height: 1.5rem;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+::ng-deep {
+  .p-timeline-event-content,
+  .p-timeline-event-opposite {
+    line-height: 1;
+  }
+}
+
+@media screen and (max-width: 1080px) {
+  ::ng-deep {
+    .customized-timeline {
+      .p-timeline-event:nth-child(even) {
+        flex-direction: row !important;
+
+        .p-timeline-event-content {
+          text-align: left !important;
+        }
+      }
+
+      .p-timeline-event-opposite {
+        flex: 0;
+      }
+
+      .p-card {
+        margin-top: .5rem;
+      }
+    }
+  }
+}
+
+$danger: #c02929;
+$success: #689F38;
+
+:host ::ng-deep .registered.p-card {
+  background: $success;
+  color: #ffffff;
+  .p-card-subtitle {
+    color: rgba(255,255,255,0.7);
+    font-size: .9rem;
+    font-weight: bold ;
+  }
+}
+
+:host ::ng-deep .unregistered.p-card {
+  background: $danger;
+  color: #ffffff;
+  .p-card-subtitle {
+    color: #ffffff;
+    font-weight: bold ;
+  }
+}
+
+:host ::ng-deep .add-block {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  button {
+    margin-top: .5rem!important;
+  }
+}
+
+:host ::ng-deep .blockchain.p-card{
+  .p-card-content {
+    max-height: 75vh;
+    overflow-y: auto;
+  }
+}

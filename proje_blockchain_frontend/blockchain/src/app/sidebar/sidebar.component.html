@@ -1,0 +1,8 @@
+<div class="sidebar">
+<!--  <p-menu [model]="items"></p-menu>-->
+  <ul>
+    <li *ngFor="let item of items">
+      <a routerLink={{item.routerLink}}> {{ item.label }}</a>
+    </li>
+  </ul>
+</div>

@@ -1,0 +1,21 @@
+@import "../../global_variables";
+
+.header {
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  width: 75%;
+  height: 75px;
+  background: $header_background;
+  padding: .5rem 2rem;
+  display: flex;
+  align-items: center;
+  img {
+    width: 200px;
+    margin-right: 2rem;
+  }
+  .header-text {
+    color: rgba(255,255,255,0.7);
+    font-size: 1.5rem;
+  }
+}

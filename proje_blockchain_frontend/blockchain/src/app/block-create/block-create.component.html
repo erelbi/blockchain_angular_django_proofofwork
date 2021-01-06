@@ -1,0 +1,11 @@
+<div class="creator">
+  <span class="p-float-label">
+    <input id="creator" type="text" pInputText [(ngModel)]="creatorInput" >
+    <label for="creator"> Data</label>
+  </span>
+
+    <button pButton type="button" label="Click" (click)="create()"></button>
+    <span class="p-d-block p-text-bold p-text-capitalize">
+      {{ creatorInput }}
+    </span>
+</div>
